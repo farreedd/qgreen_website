@@ -1,0 +1,16 @@
+# OS files
+.DS_Store
+
+# Node dependencies
+node_modules/
+
+# Environment files
+.env
+.env.*
+
+# Build outputs (keep if applicable)
+dist/
+build/
+.next/
+out/
+package-lock 2.json
