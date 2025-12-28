@@ -14,3 +14,7 @@ build/
 .next/
 out/
 package-lock 2.json
+
+
+# Archive files
+archive/
