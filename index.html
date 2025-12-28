@@ -605,6 +605,7 @@
 									type="text"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="Your name"
+									required
 								/>
 							</div>
 							<div>
@@ -619,6 +620,7 @@
 									type="text"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="Company / entity"
+									required
 								/>
 							</div>
 							<div>
@@ -633,6 +635,9 @@
 									type="email"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="name@organization.com"
+									required
+									autocomplete="email"
+									inputmode="email"
 								/>
 							</div>
 							<div>
@@ -665,6 +670,9 @@
 									rows="4"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="Briefly describe your goal, timeline, and data sources."
+									required
+									minlength="10"
+									maxlength="500"
 								></textarea>
 							</div>
 

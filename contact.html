@@ -172,6 +172,7 @@
 									type="text"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="Your name"
+									required
 								/>
 							</div>
 
@@ -187,6 +188,7 @@
 									type="text"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="Company / entity"
+									required
 								/>
 							</div>
 
@@ -202,6 +204,9 @@
 									type="email"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="name@organization.com"
+									required
+									autocomplete="email"
+									inputmode="email"
 								/>
 							</div>
 
@@ -276,6 +281,9 @@
 									rows="5"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="Briefly describe your goal and what data sources you have (meters, sensors, finance, imagery, etc.)."
+									required
+									minlength="10"
+									maxlength="500"
 								></textarea>
 							</div>
 
