@@ -165,9 +165,6 @@
 						<h2 class="text-2xl font-bold text-qgreen-blueDark sm:text-3xl">
 							What we deliver
 						</h2>
-						<p class="mt-2 text-sm text-qgreen-textSecondary">
-							Clear modules aligned to how decision-makers buy and deploy.
-						</p>
 					</div>
 				</div>
 
@@ -585,7 +582,16 @@
 					<form
 						id="contactFormHome"
 						class="rounded-3xl border border-qgreen-border bg-white p-6 shadow-sm"
+						action="https://formspree.io/f/mnjqzqqk"
+						method="POST"
 					>
+						<input
+							type="hidden"
+							name="_subject"
+							value="New message from qgreen (homepage)"
+						/>
+						<input type="text" name="_gotcha" style="display: none" />
+						<input type="hidden" name="_format" value="plain" />
 						<div class="grid gap-4">
 							<div>
 								<label
@@ -609,7 +615,7 @@
 								>
 								<input
 									id="org"
-									name="org"
+									name="organization"
 									type="text"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="Company / entity"
@@ -655,7 +661,7 @@
 								>
 								<textarea
 									id="msg"
-									name="msg"
+									name="message"
 									rows="4"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="Briefly describe your goal, timeline, and data sources."
@@ -668,13 +674,6 @@
 							>
 								Submit
 							</button>
-
-							<!--
-                            TODO (Email delivery):
-                            This form currently shows a client-side confirmation only.
-                            Hook this form to the same backend or form service as contact.html
-                            once hosting and email configuration are finalized.
-                            -->
 							<div
 								id="formStatusHome"
 								class="mt-4 hidden rounded-2xl border border-qgreen-border bg-qgreen-bgGreen p-4"

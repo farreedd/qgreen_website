@@ -9,15 +9,60 @@ function wireFormConfirmation(formId, statusId) {
 
     if (!form || !status) return;
 
-    form.addEventListener("submit", (e) => {
+    form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        status.classList.remove("hidden");
-        form.reset();
+        // Must exist in your HTML <form action="...">
+        const endpoint = form.getAttribute("action");
+        if (!endpoint) {
+            console.error("Form action is missing (Formspree endpoint).");
+            alert("Form is not configured yet.");
+            return;
+        }
 
-        setTimeout(() => status.classList.add("hidden"), 8000);
+        const submitBtn = form.querySelector('button[type="submit"], input[type="submit"]');
+        const originalBtnText = submitBtn ? submitBtn.textContent : null;
+
+        try {
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Sending...";
+            }
+
+            const formData = new FormData(form);
+
+            const res = await fetch(endpoint, {
+                method: "POST",
+                body: formData,
+                headers: { Accept: "application/json" },
+            });
+
+            if (!res.ok) {
+                let details = "";
+                try {
+                    const data = await res.json();
+                    details = data?.error || JSON.stringify(data);
+                } catch (_) { }
+                throw new Error(`Formspree error: ${res.status} ${res.statusText} ${details}`);
+            }
+
+            // Success UI
+            status.classList.remove("hidden");
+            form.reset();
+            setTimeout(() => status.classList.add("hidden"), 8000);
+        } catch (err) {
+            console.error(err);
+            alert("Could not send your message. Please try again.");
+        } finally {
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                if (originalBtnText) submitBtn.textContent = originalBtnText;
+            }
+        }
     });
 }
+
+
 
 function setActiveNav() {
     const page = document.body.getAttribute("data-page");

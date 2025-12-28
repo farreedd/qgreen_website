@@ -125,11 +125,6 @@
 							<p class="text-sm font-semibold text-qgreen-blueDark">
 								Contact details
 							</p>
-							<p class="mt-2 text-sm text-qgreen-textSecondary">
-								Contact details will be finalized after the main layout is
-								approved.
-							</p>
-
 							<div class="mt-4 space-y-2 text-sm text-qgreen-textSecondary">
 								<p>
 									<span class="font-semibold text-qgreen-blueDark">Email:</span>
@@ -149,14 +144,20 @@
 					<form
 						id="contactForm"
 						class="rounded-3xl border border-qgreen-border bg-white p-6 shadow-sm"
+						action="https://formspree.io/f/mnjqzqqk"
+						method="POST"
 					>
+						<input
+							type="hidden"
+							name="_subject"
+							value="New message from qgreen (contact page)"
+						/>
+						<input type="text" name="_gotcha" style="display: none" />
+						<input type="hidden" name="_format" value="plain" />
 						<h2 class="text-lg font-bold text-qgreen-blueDark">
 							Send a message
 						</h2>
-						<p class="mt-2 text-sm text-qgreen-textSecondary">
-							This form is a placeholder for now. We will connect submissions
-							once hosting and contact details are confirmed.
-						</p>
+						<p class="mt-2 text-sm text-qgreen-textSecondary"></p>
 
 						<div class="mt-6 grid gap-4">
 							<div>
@@ -182,7 +183,7 @@
 								>
 								<input
 									id="org"
-									name="org"
+									name="organization"
 									type="text"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="Company / entity"
@@ -271,7 +272,7 @@
 								>
 								<textarea
 									id="msg"
-									name="msg"
+									name="message"
 									rows="5"
 									class="mt-2 w-full rounded-2xl border border-qgreen-border px-4 py-3 text-sm outline-none focus:border-qgreen-blue"
 									placeholder="Briefly describe your goal and what data sources you have (meters, sensors, finance, imagery, etc.)."
@@ -297,22 +298,6 @@
 									contact you shortly.
 								</p>
 							</div>
-
-							<p class="mt-3 text-xs text-qgreen-textSecondary">
-								Form submission will be connected once contact details and
-								hosting are finalized.
-							</p>
-
-							<!--
-                                TODO (Email delivery):
-                                - Replace this placeholder submission with a real POST endpoint.
-                                - Option 1 (fast): Use Formspree/Getform/Basin and set the form action to their endpoint.
-                                - Option 2 (custom): Create /api/contact (serverless or Node) that:
-                                1) validates fields server-side
-                                2) sends email via SendGrid/Mailgun
-                                3) returns JSON { ok: true }
-                                Then update js/main.js to POST the form and show the success message below.
-                            -->
 						</div>
 					</form>
 				</div>
